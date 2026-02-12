@@ -1,0 +1,15 @@
+# GitGuardian configuration
+# This helps prevent committing sensitive data
+
+paths-ignore:
+  - "*.example"
+  - "*.md"
+  - "README.md"
+  - "replit.md"
+
+matches-ignore:
+  # Ignore example files that contain placeholder credentials
+  - name: Generic Password
+    path: ".env.example"
+  - name: Generic Password
+    path: ".replit.example"

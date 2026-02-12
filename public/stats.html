@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- No-index: block all search engines, crawlers, and AI/LLM systems from indexing this page -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai" />
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex" />
+  <meta name="googlebot-news" content="noindex, nofollow" />
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet" />
+  <meta name="slurp" content="noindex, nofollow" />
+  <meta name="duckduckbot" content="noindex, nofollow" />
+  <meta name="baiduspider" content="noindex, nofollow" />
+  <meta name="yandex" content="noindex, nofollow" />
+  <meta name="facebookexternalhit" content="noindex, nofollow" />
+  <meta name="twitterbot" content="noindex, nofollow" />
+  <meta name="linkedinbot" content="noindex, nofollow" />
+  <meta name="whatsapp" content="noindex, nofollow" />
+  <meta name="telegrambot" content="noindex, nofollow" />
+  <meta name="applebot" content="noindex, nofollow" />
+  <meta name="ccbot" content="noindex, nofollow" />
+  <meta name="GPTBot" content="noindex, nofollow" />
+  <meta name="ChatGPT-User" content="noindex, nofollow" />
+  <meta name="Google-Extended" content="noindex, nofollow" />
+  <meta name="Anthropic-AI" content="noindex, nofollow" />
+  <meta name="Claude-Web" content="noindex, nofollow" />
+  <meta name="PerplexityBot" content="noindex, nofollow" />
+  <meta name="Bytespider" content="noindex, nofollow" />
+  <meta name="author" content="Whoosh AI" />
+  <title>Valentine's Game — Stats</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; color: #0f172a; }
+    .loading { color: #64748b; padding: 2rem; text-align: center; }
+    .error { color: #dc2626; padding: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="min-h-screen bg-white pb-20">
+    <div class="max-w-[1440px] mx-auto px-6 lg:px-12 py-10">
+
+      <!-- 1. Page Header -->
+      <header class="mb-12">
+        <div class="flex items-center gap-2 mb-3">
+          <span class="h-px w-8 bg-[#07b9d5]"></span>
+          <span class="text-[#07b9d5] text-xs font-bold uppercase tracking-[0.2em]">Valentine's Match Challenge</span>
+        </div>
+        <h1 class="text-4xl lg:text-5xl font-extrabold text-[#0f172a] tracking-tight">
+          Stats — Leaderboard, Sessions &amp; Games per User
+        </h1>
+      </header>
+
+      <!-- 2. Summary Row (Three Metric Cards) -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div class="p-8 rounded-[1.5rem] bg-white border border-[#f1f5f9] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(7,185,213,0.05)] transition-all relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-[#07b9d5]/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-xl bg-[#07b9d5] flex items-center justify-center text-white shadow-lg shadow-cyan-200/50">
+              <iconify-icon icon="lucide:users" class="text-2xl"></iconify-icon>
+            </div>
+          </div>
+          <div class="text-5xl font-extrabold text-[#0f172a] tabular-nums mb-2 tracking-tighter" id="stat-entries">—</div>
+          <p class="text-[#64748b] font-medium">Total unique entries</p>
+        </div>
+        <div class="p-8 rounded-[1.5rem] bg-white border border-[#f1f5f9] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(124,59,237,0.05)] transition-all relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-[#7c3bed]/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-xl bg-[#7c3bed] flex items-center justify-center text-white shadow-lg shadow-purple-200/50">
+              <iconify-icon icon="lucide:gamepad-2" class="text-2xl"></iconify-icon>
+            </div>
+          </div>
+          <div class="text-5xl font-extrabold text-[#0f172a] tabular-nums mb-2 tracking-tighter" id="stat-games">—</div>
+          <p class="text-[#64748b] font-medium">Total games played</p>
+        </div>
+        <div class="p-8 rounded-[1.5rem] bg-white border border-[#f1f5f9] shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(16,185,129,0.05)] transition-all relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-[#10b981]/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110"></div>
+          <div class="flex items-center mb-6">
+            <div class="w-12 h-12 rounded-xl bg-[#10b981] flex items-center justify-center text-white shadow-lg shadow-emerald-200/50">
+              <iconify-icon icon="lucide:bar-chart-3" class="text-2xl"></iconify-icon>
+            </div>
+          </div>
+          <div class="text-5xl font-extrabold text-[#0f172a] tabular-nums mb-2 tracking-tighter" id="stat-average">—</div>
+          <p class="text-[#64748b] font-medium">Average times a person plays the game</p>
+        </div>
+      </section>
+
+      <!-- 3 & 4. Age Group & Region (Suburb) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <section>
+          <div class="mb-6 flex flex-col border-l-4 border-[#07b9d5] pl-4">
+            <h2 class="text-xl font-bold text-[#0f172a]">Age group</h2>
+            <p class="text-sm text-[#64748b]">All age groups we offer and how many selected each.</p>
+          </div>
+          <div class="overflow-hidden rounded-2xl border border-[#f1f5f9]">
+            <div id="age-group-content" class="loading">Loading…</div>
+          </div>
+        </section>
+        <section>
+          <div class="mb-6 flex flex-col border-l-4 border-[#7c3bed] pl-4">
+            <h2 class="text-xl font-bold text-[#0f172a]">Region (suburb)</h2>
+            <p class="text-sm text-[#64748b]">Suburbs selected and how many from each.</p>
+          </div>
+          <div class="overflow-hidden rounded-2xl border border-[#f1f5f9]">
+            <div id="suburb-content" class="loading">Loading…</div>
+          </div>
+        </section>
+      </div>
+
+      <!-- 5. Full Leaderboard -->
+      <section class="mb-16">
+        <div class="mb-6 border-b border-slate-100 pb-4">
+          <h2 class="text-2xl font-extrabold text-[#0f172a] tracking-tight">Full Leaderboard</h2>
+          <p class="text-[#64748b] mt-1">Best score per player (all players, no limit).</p>
+        </div>
+        <div class="bg-white rounded-[1.5rem] border border-[#f1f5f9] overflow-hidden shadow-sm">
+          <div id="leaderboard-content" class="loading">Loading…</div>
+        </div>
+      </section>
+
+      <!-- 6. Game Sessions -->
+      <section class="mb-16">
+        <div class="mb-6">
+          <h2 class="text-2xl font-extrabold text-[#0f172a] tracking-tight">Game Sessions</h2>
+          <p class="text-[#64748b] mt-1">Last 20 per page; use Prev/Next to see more.</p>
+        </div>
+        <div class="bg-white rounded-[1.5rem] border border-[#f1f5f9] overflow-hidden shadow-sm">
+          <div id="sessions-content" class="loading">Loading…</div>
+          <div id="sessions-pagination" class="hidden px-8 py-6 bg-[#f8fafc] border-t border-[#f1f5f9] flex items-center justify-between"></div>
+        </div>
+      </section>
+
+      <!-- 7. Games per User -->
+      <section>
+        <div class="mb-6">
+          <h2 class="text-2xl font-extrabold text-[#0f172a] tracking-tight">Games per User</h2>
+          <p class="text-[#64748b] mt-1">How many games each user played and which board (seed) they played.</p>
+        </div>
+        <div id="users-content" class="loading">Loading…</div>
+      </section>
+
+      <footer class="mt-16 pt-8 border-t border-slate-200 text-center text-sm text-slate-500">
+        Copyright 2026. All rights reserved. Woosh AI
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    const API = '/api/stats';
+
+    async function loadSummary() {
+      try {
+        const res = await fetch(API + '/summary');
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error || 'Failed');
+        const s = data.summary || {};
+        document.getElementById('stat-entries').textContent = (s.totalUniqueEntries ?? 0).toLocaleString();
+        document.getElementById('stat-games').textContent = (s.totalGamesPlayed ?? 0).toLocaleString();
+        const avg = s.averageTimesPlayedPerPerson;
+        document.getElementById('stat-average').textContent = typeof avg === 'number' ? avg.toFixed(2) : '—';
+      } catch (e) {
+        document.getElementById('stat-entries').textContent = '—';
+        document.getElementById('stat-games').textContent = '—';
+        document.getElementById('stat-average').textContent = '—';
+      }
+    }
+
+    async function loadAgeGroup() {
+      const el = document.getElementById('age-group-content');
+      try {
+        const res = await fetch(API + '/age-group');
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error || 'Failed');
+        const rows = data.ageGroup || [];
+        if (rows.length === 0) {
+          el.innerHTML = '<p class="loading">No data yet.</p>';
+          return;
+        }
+        el.innerHTML = '<table class="w-full text-left"><thead><tr class="bg-[#f8fafc] border-b border-[#f1f5f9]"><th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-[#64748b]">Age group</th><th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-[#64748b] text-right">Count</th></tr></thead><tbody class="divide-y divide-[#f1f5f9]">' +
+          rows.map(r => '<tr class="hover:bg-slate-50 transition-colors"><td class="px-6 py-4 text-sm font-semibold">' + escapeHtml(r.ageGroup) + '</td><td class="px-6 py-4 text-sm tabular-nums text-right">' + (r.count ?? 0).toLocaleString() + '</td></tr>').join('') +
+          '</tbody></table>';
+      } catch (e) {
+        el.innerHTML = '<p class="error">' + escapeHtml(e.message) + '</p>';
+      }
+    }
+
+    async function loadSuburb() {
+      const el = document.getElementById('suburb-content');
+      try {
+        const res = await fetch(API + '/suburb');
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error || 'Failed');
+        const rows = data.suburb || [];
+        if (rows.length === 0) {
+          el.innerHTML = '<p class="loading">No data yet.</p>';
+          return;
+        }
+        el.innerHTML = '<table class="w-full text-left"><thead><tr class="bg-[#f8fafc] border-b border-[#f1f5f9]"><th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-[#64748b]">Suburb</th><th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-[#64748b] text-right">Count</th></tr></thead><tbody class="divide-y divide-[#f1f5f9]">' +
+          rows.map(r => '<tr class="hover:bg-slate-50 transition-colors"><td class="px-6 py-4 text-sm font-semibold">' + escapeHtml(r.suburb) + '</td><td class="px-6 py-4 text-sm tabular-nums text-right">' + (r.count ?? 0).toLocaleString() + '</td></tr>').join('') +
+          '</tbody></table>';
+      } catch (e) {
+        el.innerHTML = '<p class="error">' + escapeHtml(e.message) + '</p>';
+      }
+    }
+
+    function rankBadgeClass(rank) {
+      if (rank === 1) return 'bg-[#07b9d5]/10 text-[#07b9d5]';
+      if (rank === 2) return 'bg-[#7c3bed]/10 text-[#7c3bed]';
+      if (rank === 3) return 'bg-[#10b981]/10 text-[#10b981]';
+      return 'bg-slate-100 text-slate-500';
+    }
+
+    async function loadLeaderboard() {
+      const el = document.getElementById('leaderboard-content');
+      try {
+        const res = await fetch(API + '/leaderboard');
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error || 'Failed');
+        const rows = data.leaderboard || [];
+        if (rows.length === 0) {
+          el.innerHTML = '<p class="loading">No leaderboard data yet.</p>';
+          return;
+        }
+        const rankFmt = (r) => String(r).padStart(2, '0');
+        el.innerHTML = '<div class="overflow-x-auto"><table class="w-full"><thead><tr class="bg-[#f8fafc] border-b border-[#f1f5f9]"><th class="px-8 py-5 text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Rank</th><th class="px-8 py-5 text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Player</th><th class="px-8 py-5 text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Mobile</th><th class="px-8 py-5 text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Best Score</th><th class="px-8 py-5 text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Games</th></tr></thead><tbody class="divide-y divide-[#f1f5f9]">' +
+          rows.map(r => '<tr class="hover:bg-slate-50/80 transition-colors"><td class="px-8 py-5"><div class="w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-sm tabular-nums ' + rankBadgeClass(r.rank) + '">' + rankFmt(r.rank) + '</div></td><td class="px-8 py-5"><div class="flex items-center gap-3"><div class="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center text-slate-400"><iconify-icon icon="lucide:user"></iconify-icon></div><span class="font-bold text-[#0f172a]">' + escapeHtml(r.name) + '</span></div></td><td class="px-8 py-5 text-sm font-medium text-[#64748b]">' + escapeHtml(r.mobile) + '</td><td class="px-8 py-5 text-right font-extrabold text-[#0f172a] text-lg tabular-nums">' + r.score.toLocaleString() + '</td><td class="px-8 py-5 text-right tabular-nums text-slate-500">' + r.totalGames + '</td></tr>').join('') +
+          '</tbody></table></div>';
+      } catch (e) {
+        el.innerHTML = '<p class="error">' + escapeHtml(e.message) + '</p>';
+      }
+    }
+
+    const SESSIONS_PAGE_SIZE = 20;
+    let sessionsCurrentPage = 1;
+    let sessionsTotal = 0;
+
+    async function loadSessions(page) {
+      const el = document.getElementById('sessions-content');
+      const pagEl = document.getElementById('sessions-pagination');
+      el.innerHTML = '<p class="loading">Loading…</p>';
+      pagEl.classList.add('hidden');
+      try {
+        const res = await fetch(API + '/sessions?page=' + (page || 1) + '&limit=' + SESSIONS_PAGE_SIZE);
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error || 'Failed');
+        const rows = data.sessions || [];
+        sessionsTotal = data.total ?? 0;
+        sessionsCurrentPage = data.page ?? 1;
+        if (rows.length === 0) {
+          el.innerHTML = '<p class="loading">No sessions yet.</p>';
+          return;
+        }
+        const fmt = (d) => d ? new Date(d).toLocaleString() : '—';
+        el.innerHTML = '<div class="overflow-x-auto"><table class="w-full"><thead><tr class="bg-[#f8fafc] border-b border-[#f1f5f9]"><th class="px-8 py-4 text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Date &amp; Time</th><th class="px-8 py-4 text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Player</th><th class="px-8 py-4 text-left text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Mobile</th><th class="px-8 py-4 text-right text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Score</th><th class="px-8 py-4 text-center text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Seed</th><th class="px-8 py-4 text-center text-[10px] font-bold uppercase tracking-[0.15em] text-[#64748b]">Best?</th></tr></thead><tbody class="divide-y divide-[#f1f5f9]">' +
+          rows.map(r => '<tr class="hover:bg-slate-50 transition-colors"><td class="px-8 py-4 text-xs font-medium text-slate-500 tabular-nums">' + fmt(r.completedAt) + '</td><td class="px-8 py-4 font-semibold text-sm">' + escapeHtml(r.playerName) + '</td><td class="px-8 py-4 text-xs font-mono text-slate-400">' + escapeHtml(r.mobile) + '</td><td class="px-8 py-4 text-right font-bold tabular-nums">' + r.score.toLocaleString() + '</td><td class="px-8 py-4 text-center"><span class="px-2 py-1 bg-slate-100 rounded text-[10px] font-mono text-slate-500">' + (r.seed != null ? r.seed : '—') + '</span></td><td class="px-8 py-4 text-center">' + (r.isBestScore ? '<iconify-icon icon="lucide:check-circle" class="text-emerald-500 text-lg"></iconify-icon>' : '<iconify-icon icon="lucide:minus-circle" class="text-slate-300 text-lg"></iconify-icon>') + '</td></tr>').join('') +
+          '</tbody></table></div>';
+        const totalPages = Math.max(1, Math.ceil(sessionsTotal / SESSIONS_PAGE_SIZE));
+        pagEl.innerHTML = '<button type="button" id="sessions-prev" class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 hover:border-[#07b9d5] hover:text-[#07b9d5] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-slate-200 disabled:hover:text-slate-600"><iconify-icon icon="lucide:chevron-left"></iconify-icon> Previous</button><span class="text-sm text-slate-500 font-medium">Page <span class="text-[#0f172a] font-bold">' + sessionsCurrentPage + '</span> of <span class="text-[#0f172a] font-bold">' + totalPages + '</span> <span class="mx-2 text-slate-300">|</span> <span class="italic">' + sessionsTotal.toLocaleString() + ' total sessions</span></span><button type="button" id="sessions-next" class="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50 hover:border-[#07b9d5] hover:text-[#07b9d5] transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:border-slate-200 disabled:hover:text-slate-600">Next <iconify-icon icon="lucide:chevron-right"></iconify-icon></button>';
+        pagEl.classList.remove('hidden');
+        document.getElementById('sessions-prev').onclick = () => { if (sessionsCurrentPage > 1) loadSessions(sessionsCurrentPage - 1); };
+        document.getElementById('sessions-next').onclick = () => { if (sessionsCurrentPage < totalPages) loadSessions(sessionsCurrentPage + 1); };
+        document.getElementById('sessions-prev').disabled = sessionsCurrentPage <= 1;
+        document.getElementById('sessions-next').disabled = sessionsCurrentPage >= totalPages;
+      } catch (e) {
+        el.innerHTML = '<p class="error">' + escapeHtml(e.message) + '</p>';
+      }
+    }
+
+    async function loadUsers() {
+      const el = document.getElementById('users-content');
+      try {
+        const res = await fetch(API + '/sessions');
+        const data = await res.json();
+        if (!data.success) throw new Error(data.error || 'Failed');
+        const sessions = data.sessions || [];
+        const byPlayer = {};
+        sessions.forEach(s => {
+          const key = s.playerId;
+          if (!byPlayer[key]) byPlayer[key] = { name: s.playerName, mobile: s.mobile, games: [] };
+          byPlayer[key].games.push({ score: s.score, seed: s.seed, completedAt: s.completedAt });
+        });
+        const list = Object.values(byPlayer).sort((a, b) => b.games.length - a.games.length);
+        if (list.length === 0) {
+          el.innerHTML = '<p class="loading">No players yet.</p>';
+          return;
+        }
+        const colors = ['border-[#07b9d5]/30', 'border-[#7c3bed]/30', 'border-[#10b981]/30'];
+        const pillColors = ['bg-[#07b9d5]/10 text-[#07b9d5]', 'bg-[#7c3bed]/10 text-[#7c3bed]', 'bg-[#10b981]/10 text-[#10b981]'];
+        el.innerHTML = '<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">' + list.map((u, i) => {
+          const seeds = u.games.map(g => g.seed != null ? '<span class="px-2 py-1 bg-slate-50 text-[10px] font-mono border border-slate-100 rounded">Seed ' + g.seed + '</span>' : '').filter(Boolean).join('');
+          const color = colors[i % 3];
+          const pill = pillColors[i % 3];
+          return '<div class="p-6 rounded-2xl bg-white border border-[#f1f5f9] hover:' + color + ' transition-all"><div class="flex justify-between items-start mb-4"><div><h3 class="font-bold text-[#0f172a]">' + escapeHtml(u.name) + '</h3><p class="text-xs font-mono text-slate-400 mt-1">' + escapeHtml(u.mobile) + '</p></div><div class="px-3 py-1 rounded-full ' + pill + '"><span class="text-[10px] font-bold uppercase">' + u.games.length + ' game(s)</span></div></div><div class="space-y-3"><p class="text-[10px] font-bold text-[#64748b] uppercase tracking-wider">Seeds used</p><div class="flex flex-wrap gap-2">' + (seeds || '—') + '</div></div></div>';
+        }).join('') + '</div>';
+      } catch (e) {
+        el.innerHTML = '<p class="error">' + escapeHtml(e.message) + '</p>';
+      }
+    }
+
+    function escapeHtml(s) {
+      if (s == null) return '';
+      const div = document.createElement('div');
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    loadSummary();
+    loadAgeGroup();
+    loadSuburb();
+    loadLeaderboard();
+    loadSessions(1);
+    loadUsers();
+  </script>
+</body>
+</html>

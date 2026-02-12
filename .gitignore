@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.local
+.env.production
+.env.*
+# Drizzle migrations - ignore generated files but allow SQL migrations
+server/db/migrations/*.ts
+server/db/migrations/.gitkeep
+
+# Replit configuration with sensitive data
+# Note: .replit is needed but should not contain credentials
+# Use Replit Secrets for sensitive values instead
+replit-secrets.env
+replit-secrets-ready.env
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

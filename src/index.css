@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-bg-outer text-gray-900;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: 'tnum'; /* Tabular numbers for timer/score */
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism utilities */
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-white/60;
+  }
+  
+  .glass-input {
+    @apply bg-white/60 px-4 py-3 rounded-xl border-none;
+  }
+  
+  /* Typography utilities */
+  .heading-hero {
+    @apply text-4xl font-black uppercase leading-none;
+  }
+  
+  .subheading-hero {
+    @apply text-2xl font-extrabold italic tracking-tighter;
+  }
+  
+  .data-label {
+    @apply text-[10px] font-bold uppercase tracking-widest text-gray-400;
+  }
+
+  /* Extra bottom padding on small screens so content clears browser nav bar; respects safe area on notched iOS */
+  .pb-safe-bottom {
+    padding-bottom: max(6rem, calc(1.5rem + env(safe-area-inset-bottom, 0px)));
+  }
+  @media (min-width: 640px) {
+    .pb-safe-bottom {
+      padding-bottom: 1.5rem;
+    }
+  }
+  
+  /* Tile utilities */
+  .tile-base {
+    @apply aspect-square rounded-2xl border border-white/50 cursor-pointer;
+    @apply transition-transform duration-200;
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .tile-selected {
+    @apply scale-90 outline outline-action-pink;
+    outline-width: 3px;
+    outline-offset: -3px;
+    z-index: 10;
+  }
+  
+  .tile-matched {
+    @apply scale-0 opacity-0;
+  }
+  
+  /* Shake animation for invalid moves */
+  .shake {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+  }
+  
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+  
+  /* Gradient button */
+  .btn-gradient {
+    @apply bg-gradient-to-r from-action-cyan to-accent-purple text-white font-semibold;
+    @apply px-6 py-3 rounded-xl transition-all hover:opacity-90;
+  }
+
+  /* Tile matching animation */
+  .tile-matching {
+    animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    z-index: 30;
+  }
+
+  .tile-glow {
+    box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.8), 0 0 30px 10px rgba(7, 185, 213, 0.4);
+    z-index: 25;
+    transition: box-shadow 0.2s ease;
+  }
+
+  /* Floating score animation */
+  .float-up {
+    animation: floatUp 1s ease-out forwards;
+  }
+
+  /* Screen pulse animation */
+  .screen-pulse {
+    animation: screenPulse 0.3s ease-out;
+  }
+
+  /* Heart fall animation */
+  .animate-fall {
+    animation: fall 3s linear forwards;
+  }
+
+  @keyframes pop {
+    0% { transform: scale(1); filter: brightness(1); }
+    40% { transform: scale(1.5); filter: brightness(2); }
+    100% { transform: scale(0); filter: brightness(3); opacity: 0; }
+  }
+
+  @keyframes floatUp {
+    0% { transform: translate(-50%, 0); opacity: 1; scale: 1; }
+    100% { transform: translate(-50%, -100px); opacity: 0; scale: 1.5; }
+  }
+
+  @keyframes screenPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.015); filter: saturate(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes fall {
+    0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+  }
+}
