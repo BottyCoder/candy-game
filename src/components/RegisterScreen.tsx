@@ -27,18 +27,18 @@ export default function RegisterScreen({ onSubmit, isRegistering = false, error 
       <div className="text-center mb-6">
         <div className="flex justify-center mb-4">
           <img 
-            src="https://www.newtownjunctionmall.co.za/images/logo/ntj-logo-90px.png" 
-            alt="NTJ Logo" 
+            src="/images/candy-game-logo.png" 
+            alt="Candy Game" 
             className="h-20 object-contain"
           />
         </div>
         <h1 className="text-2xl font-black text-action-cyan leading-none mb-2 uppercase tracking-tight">
-          <span className="text-action-pink">Match made</span> at Newtown!
+          <span className="text-action-pink">Match made</span> in Candy Game!
         </h1>
-        <p className="text-xs font-bold text-gray-500 mb-2 italic">#ValentinesDayEdition</p>
+        <p className="text-xs font-bold text-gray-500 mb-2 italic">#CandyGame</p>
         <div className="bg-white/80 rounded-xl p-3 shadow-sm border border-pink-100 mb-2">
           <p className="text-[11px] text-pink-600 font-bold leading-tight uppercase">
-            Stand a chance to WIN 1 of 4 R500 vouchers to shop at Newtown Junction Mall!
+            Play, score, and climb the leaderboard!
           </p>
         </div>
       </div>
@@ -112,7 +112,7 @@ export default function RegisterScreen({ onSubmit, isRegistering = false, error 
       <p className="text-[10px] text-gray-400 text-center mt-4 mb-8 pb-4 px-4">
         Please enter your details and tap Enter Now to play. By entering, you agree to our{' '}
         <a
-          href="https://nix82.com/site/wp-content/uploads/2026/02/NTJ_Gamification-Ts-Cs.pdf"
+          href="#"
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 hover:underline"

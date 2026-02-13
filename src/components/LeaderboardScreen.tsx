@@ -53,12 +53,12 @@ export default function LeaderboardScreen({ player, score, onPlayAgain }: Leader
   }
 
   const shareScore = () => {
-    const text = `I just scored ${score} in the NTJ Valentine's Match Challenge! Can you beat me? 💖 #NTJMall #ValentineChallenge`
+    const text = `I just scored ${score} in Candy Game! Can you beat me? 🎮 #CandyGame`
     const url = window.location.href
 
     if (navigator.share) {
       navigator.share({
-        title: 'NTJ Valentine Challenge',
+        title: 'Candy Game',
         text: text,
         url: url
       }).catch((err: Error) => {
@@ -117,15 +117,15 @@ export default function LeaderboardScreen({ player, score, onPlayAgain }: Leader
     <div id="leaderboard-scroll" className="flex flex-col min-w-0 animate-fade-in flex-1 min-h-0">
       <div className="flex justify-center pt-2 pb-1 shrink-0">
         <img 
-          src="https://www.newtownjunctionmall.co.za/images/logo/ntj-logo-90px.png" 
-          alt="NTJ Logo" 
+          src="/images/candy-game-logo.png" 
+          alt="Candy Game" 
           className="h-11 sm:h-14 object-contain"
         />
       </div>
       <div className="text-center mb-2 sm:mb-4 shrink-0 px-0 pt-4 sm:pt-6">
         <h2 className="text-xl sm:text-3xl font-black uppercase leading-tight text-action-cyan">Leaderboard</h2>
-        <p className="text-pink-600 text-xs sm:text-base font-bold mt-1 sm:mt-2">Congratulations! Cupid has received your entry.</p>
-        <p className="text-gray-600 text-[11px] sm:text-sm mt-0.5 sm:mt-1 px-0">Play more. Score higher. Top the leaderboard. Stand to WIN 1 of 4 R500 vouchers!</p>
+        <p className="text-pink-600 text-xs sm:text-base font-bold mt-1 sm:mt-2">Congratulations! Your score has been recorded.</p>
+        <p className="text-gray-600 text-[11px] sm:text-sm mt-0.5 sm:mt-1 px-0">Play more. Score higher. Top the leaderboard!</p>
       </div>
 
       <div className="bg-white/80 rounded-2xl sm:rounded-3xl shadow-xl overflow-hidden mb-2 sm:mb-4 flex-1 min-h-0 min-w-0 pr-1 sm:pr-0 flex flex-col">

@@ -98,7 +98,7 @@ function App() {
     setSelected(null)
     setIsProcessing(false)
     setCurrentGameSeed(seedUsed)
-    console.log('[Valentines Game] Grid generated', { seed, seedUsed, typeIds })
+    console.log('[Candy Game] Grid generated', { seed, seedUsed, typeIds })
   }
 
   const handleTimeUp = async () => {
@@ -309,8 +309,8 @@ function App() {
         {/* Header: centred logo on Tutorial & Game (per Screen 1 & 4); refresh on right */}
         <header className={`relative z-50 p-4 flex justify-center items-center ${screen === 'LEADERBOARD' || screen === 'REGISTER' ? 'hidden' : ''}`}>
           <img 
-            src="https://www.newtownjunctionmall.co.za/images/logo/ntj-logo-90px.png" 
-            alt="NTJ Logo" 
+            src="/images/candy-game-logo.png" 
+            alt="Candy Game" 
             className="h-10 object-contain"
           />
           <div className="absolute right-4 top-1/2 -translate-y-1/2 flex gap-2">
