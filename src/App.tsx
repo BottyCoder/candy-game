@@ -290,6 +290,12 @@ function App() {
   }, [dragStart, handleSwap])
 
   const handlePlayAgain = () => {
+    // Clear ?seed= from URL so the next game gets a fresh random seed (avoids one shared link causing many games with same seed in stats)
+    const url = new URL(window.location.href)
+    if (url.searchParams.has('seed')) {
+      url.searchParams.delete('seed')
+      window.history.replaceState({}, '', url.pathname + (url.search || ''))
+    }
     setScreen('TUTORIAL')
     setScore(0)
     setSelected(null)
